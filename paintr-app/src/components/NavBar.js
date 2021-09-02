@@ -10,9 +10,7 @@ function NavBar({ color, icon, title, description, changeColor }) {
       </button>
 
       {/* Call changeColor() via onClick using props */}
-      <button className="ui button" onClick={changeColor}>
-        Change Color
-      </button>
+      <button onClick={changeColor} className="ui button">Change Color</button>
     </div>
   );
 };

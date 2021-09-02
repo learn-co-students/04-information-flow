@@ -10,7 +10,7 @@ import { useState } from 'react';
 // Compontent Imports
 import NavBar from './components/NavBar';
 import PaintingsList from './components/PaintingsList';
-import PaintingForm from './components/PaintingForm'
+import PaintingForm from './components/PaintingForm';
 
 function App() {
 
@@ -18,24 +18,15 @@ function App() {
   const [color, colorSetter] = useState("red");
   const [paintings, paintingsSetter] = useState(paintingsData);
   const [formView, formViewSetter] = useState(false);
-
+  
   // Create function to change Parent's "color" state (changeColor)
   function changeColor() {
-    // if (color === "red") {
-    //   colorSetter("blue");
-    // } else {
-    //   colorSetter("red");
-    // }
-
-    color === "red" ? colorSetter("blue") : colorSetter("red");
+    { color === "red" ? colorSetter("blue") : colorSetter("red") }
   }
 
   // Breakout Activity #1: Create Function to Toggle Between PaintingForm / PaintingsList (toggleForm)
   function toggleForm() {
     formViewSetter(!formView);
-    // add
-    // other
-    // behaviors
   }
 
   return (
@@ -51,15 +42,15 @@ function App() {
       />
 
       {/* Add toggleForm click behavior */}
-      <button className="ui button" onClick={toggleForm}>Show/Hide New Painting Form</button>
+      <button onClick={toggleForm} className="ui button">Show/Hide New Painting Form</button>
       <hr />
 
       {/* Breakout Activity #1: Render PaintingForm or PaintingsList Components based upon toggleForm */}
+      { formView ? <PaintingForm /> : <PaintingsList paintings={paintings} /> }
 
-      {formView ? <PaintingForm /> : <PaintingsList paintings={paintings} />}
-
-      {/* <PaintingsList paintings={paintings} />
-      <PaintingForm /> */}
+      {/* ALTERNATIVE UI */}
+      {/* { formView ? <PaintingForm /> : null }
+      <PaintingsList paintings={paintings} /> */}
     </div>
   );
 }

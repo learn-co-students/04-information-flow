@@ -1,6 +1,6 @@
-function PaintingForm({ color }) {
+function PaintingForm() {
     return (
-        <div className={color}>
+        <div>
             <h1> Add a new Painting</h1>
             <form>
                 <input type="text" placeholder="ImgURL"/> <br/>
