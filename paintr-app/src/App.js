@@ -2,7 +2,7 @@
 import 'semantic-ui-css/semantic.min.css';
 
 // import all data from "painting_data.js"
-import paintingsData from './paintings_data'
+import paintingsData from './paintings_data';
 
 // import useState Hook
 import { useState } from 'react';
@@ -20,10 +20,23 @@ function App() {
   const [formView, formViewSetter] = useState(false);
 
   // Create function to change Parent's "color" state (changeColor)
-  // ...
+  function changeColor() {
+    // if (color === "red") {
+    //   colorSetter("blue");
+    // } else {
+    //   colorSetter("red");
+    // }
+
+    color === "red" ? colorSetter("blue") : colorSetter("red");
+  }
 
   // Breakout Activity #1: Create Function to Toggle Between PaintingForm / PaintingsList (toggleForm)
-  // ...
+  function toggleForm() {
+    formViewSetter(!formView);
+    // add
+    // other
+    // behaviors
+  }
 
   return (
     <div>
@@ -34,17 +47,20 @@ function App() {
         description="an app we made"
 
         // Pass changeColor() as prop to NavBar
-        // ...
+        changeColor={changeColor}
       />
 
       {/* Add toggleForm click behavior */}
-      <button className="ui button">Show/Hide New Painting Form</button>
+      <button className="ui button" onClick={toggleForm}>Show/Hide New Painting Form</button>
       <hr />
 
       {/* Breakout Activity #1: Render PaintingForm or PaintingsList Components based upon toggleForm */}
-      {/* ... */}
-    
-      <PaintingsList paintings={paintings} />
+
+      {formView ? <PaintingForm /> : 
+        <PaintingsList paintings={paintings} someFunction={someFunction} />}
+
+      {/* <PaintingsList paintings={paintings} />
+      <PaintingForm /> */}
     </div>
   );
 }

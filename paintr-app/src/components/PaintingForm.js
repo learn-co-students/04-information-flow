@@ -1,6 +1,6 @@
-function PaintingForm() {
+function PaintingForm({ color }) {
     return (
-        <div>
+        <div className={color}>
             <h1> Add a new Painting</h1>
             <form>
                 <input type="text" placeholder="ImgURL"/> <br/>
@@ -11,7 +11,7 @@ function PaintingForm() {
                 <input type="text" placeholder="height"/><br/>
 
                 <input type="submit" value="add new painting"/>
-            </form>x
+            </form>
         </div>
     );
 }
