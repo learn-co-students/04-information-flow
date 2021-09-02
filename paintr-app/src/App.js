@@ -56,8 +56,7 @@ function App() {
 
       {/* Breakout Activity #1: Render PaintingForm or PaintingsList Components based upon toggleForm */}
 
-      {formView ? <PaintingForm /> : 
-        <PaintingsList paintings={paintings} someFunction={someFunction} />}
+      {formView ? <PaintingForm /> : <PaintingsList paintings={paintings} />}
 
       {/* <PaintingsList paintings={paintings} />
       <PaintingForm /> */}
